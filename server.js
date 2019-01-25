@@ -23,8 +23,6 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/cart-counter");
 // MLAB Link Below
 // mongoose.connect(process.env.MONGODB_URI || "mongodb://DanC:123456@ds143953.mlab.com:43953/onthedob_db");
 
-const db = require('./models');
-
 
 // Start the API server
 app.listen(PORT, function() {
