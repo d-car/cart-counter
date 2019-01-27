@@ -19,7 +19,7 @@ if (process.env.NODE_ENV === "production") {
 app.use(routes);
 
 // MongoDB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/cart-counter");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/cart-counter", { useNewUrlParser: true });
 
 // Start the API server
 app.listen(PORT, function() {
