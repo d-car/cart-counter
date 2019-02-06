@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import AppBar from 'material-ui/AppBar';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 
@@ -16,7 +15,6 @@ export class Search extends Component {
     return (
       <MuiThemeProvider>
           <React.Fragment>
-            <AppBar title="Cart-Counter" />
             <TextField
                 hintText="Search for Game"
                 floatingLabelText="Game"
