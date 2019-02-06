@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import Search from './Search'
 
 export class SearchForm extends Component {
     state = {
@@ -8,7 +9,7 @@ export class SearchForm extends Component {
 
     // Show Results
 
-    searchResults = () => {
+    showResults = () => {
         const { step } = this.state;
         this.setState({
             step: step + 1
@@ -39,7 +40,7 @@ export class SearchForm extends Component {
           case 1:
             return (
                 <Search 
-                    searchResults={this.results}
+                    showResults={this.showResults}
                     handleChange={this.handleChange}
                     values={values}
                 />
@@ -49,11 +50,6 @@ export class SearchForm extends Component {
                 <h1>SearchResult</h1>
             )
       }
-    return (
-      <div>
-        
-      </div>
-    )
   }
 }
 
