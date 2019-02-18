@@ -37,7 +37,7 @@ export class Search extends Component {
 
 const styles = {
     button: {
-        margin: 15
+        margin: 15,
     }
 }
 

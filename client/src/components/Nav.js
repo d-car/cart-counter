@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -6,10 +7,12 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
+import { fade } from '@material-ui/core/styles/colorManipulator';
 import { withStyles } from '@material-ui/core/styles';
-import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import SvgIcon from '@material-ui/core/SvgIcon';
+import Search from '@material-ui/icons/Search';
 
 const styles = theme => ({
   root: {
@@ -21,9 +24,9 @@ const styles = theme => ({
   menuButton: {
     marginLeft: -12,
     marginRight: 20,
+    color:'white'
   },
   title: {
-    display: 'none',
     [theme.breakpoints.up('sm')]: {
       display: 'block',
     },
@@ -79,12 +82,25 @@ class PrimarySearchAppBar extends React.Component {
         open={isMenuOpen}
         onClose={this.handleMenuClose}
       >
-        <MenuItem onClick={this.handleMenuClose}>Profile</MenuItem>
-        <MenuItem onClick={this.handleMenuClose}>My account</MenuItem>
+        <MenuItem onClick={this.handleMenuClose}>
+          <Link to='/login' style={{ textDecoration: 'none' }}>
+            Login
+          </Link>
+        </MenuItem>
       </Menu>
     );
 
+    function HomeIcon(props) {
+      return (
+        <SvgIcon {...props}>
+          <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+        </SvgIcon>
+      );
+    }
+
     const renderMobileMenu = (
+
+
       <Menu
         anchorEl={mobileMoreAnchorEl}
         anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
@@ -92,38 +108,63 @@ class PrimarySearchAppBar extends React.Component {
         open={isMobileMenuOpen}
         onClose={this.handleMenuClose}
       >
+
         <MenuItem onClick={this.handleProfileMenuOpen}>
-          <IconButton color="inherit">
+          <IconButton color="white">
             <AccountCircle />
           </IconButton>
           <p>Profile</p>
         </MenuItem>
+        <MenuItem onClick={this.handleMenuClose}>
+          <IconButton color='white'>
+            <Link to='/search' style={{ textDecoration: 'none' }}>
+              <Search />
+              <p>Search</p>
+            </Link>
+          </IconButton>
+        </MenuItem>
       </Menu>
+
+
+
+
     );
 
     return (
       <div className={classes.root}>
         <AppBar position="static">
           <Toolbar>
-            <IconButton className={classes.menuButton} color="inherit" aria-label="Open drawer">
-              <MenuIcon />
-            </IconButton>
-            <Typography className={classes.title} variant="h6" color="inherit" noWrap>
-              Cart-Counter
-            </Typography>
+            <Link to='/' style={{ textDecoration: 'none' }}>
+              <Typography className={classes.title} variant="h6" color="white" noWrap>
+                Cart-Counter
+              </Typography>
+            </Link>
             <div className={classes.grow} />
             <div className={classes.sectionDesktop}>
+
+              <IconButton color='white'>
+                <Link to='/search' style={{ textDecoration: 'none' }}>
+                  <Search />
+                </Link>
+              </IconButton>
+
+              <IconButton color="white">
+                <Link to='/' style={{ textDecoration: 'none' }}>
+                  <HomeIcon className={classes.icon} />
+                </Link>
+              </IconButton>
+
               <IconButton
                 aria-owns={isMenuOpen ? 'material-appbar' : undefined}
                 aria-haspopup="true"
                 onClick={this.handleProfileMenuOpen}
-                color="inherit"
+                color="white"
               >
                 <AccountCircle />
               </IconButton>
             </div>
             <div className={classes.sectionMobile}>
-              <IconButton aria-haspopup="true" onClick={this.handleMobileMenuOpen} color="inherit">
+              <IconButton aria-haspopup="true" onClick={this.handleMobileMenuOpen} color="white">
                 <MoreIcon />
               </IconButton>
             </div>
