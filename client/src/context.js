@@ -1,38 +1,38 @@
 import React, { Component } from 'react'
-import { storeProducts, detailProduct } from './data';
+import { gameArray, detailGame } from './data';
 
 
-const ProductContext = React.createContext();
+const GameContext = React.createContext();
 //Provider
 //Consumer
 
-class ProductProvider extends Component {
+class GameProvider extends Component {
 
   state = {
-    products:storeProducts, 
-    detailProduct:detailProduct
+    game:gameArray,
+    detailGame:detailGame
   }
   handleDetail = () => {
     console.log("hello from detail");
   }
-  addToCart = () => {
-    console.log("hello from addToCart");
+  addToCollection = () => {
+    console.log("hello from addToCollection");
   }
   render() {
     return (
-      <ProductContext.Provider value={{
+      <GameContext.Provider value={{
         ...this.state,
         handleDetail: this.handleDetail,
-        addToCart: this.addToCart
+        addToCollection: this.addToCollection
       }}>
-          {this.props.children}
-      </ProductContext.Provider>
-        
-      
+        {this.props.children}
+      </GameContext.Provider>
+
+
     )
   }
 }
 
-const ProductConsumer = ProductContext.Consumer
+const GameConsumer = GameContext.Consumer
 
-export { ProductProvider,ProductConsumer };
+export { GameProvider, GameConsumer };

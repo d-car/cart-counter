@@ -17,7 +17,8 @@ const App = () => (
         <Switch>
           {/* <PrimarySearchAppBar /> */}
           <Route exact path='/search' component={SearchForm} />
-          <Route exact path='/' component={Game} />
+          <Route exact path='/' component={GameList} />
+          {/* <Route exact path='/' component={Game} /> */}
           {/* <Route exact path='/callback' component={Profile} />
           <Route exact path='/home' component={Splash} />
           <Route exact path='/profile' component={Profile} /> */}

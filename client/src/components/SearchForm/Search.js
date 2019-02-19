@@ -14,21 +14,22 @@ export class Search extends Component {
     const { values, handleChange } = this.props;
     return (
       <MuiThemeProvider>
-          <React.Fragment>
-            <TextField
-                hintText="Search for Game"
-                floatingLabelText="Game"
-                onChange={handleChange('gameSearch')}
-                defaultValue={values.continue}
-            />
-            <br/>
-            <RaisedButton
-                label="Search"
-                primary={true}
-                style={styles.button}
-                onClick={this.continue}
-            />
-          </React.Fragment>
+
+        <React.Fragment>
+          <TextField
+              hintText="Search for Game"
+              floatingLabelText="Game"
+              onChange={handleChange('gameSearch')}
+              defaultValue={values.continue}
+          />
+          <br/>
+          <RaisedButton
+              label="Search"
+              primary={true}
+              style={styles.button}
+              onClick={this.continue}
+          />
+        </React.Fragment>
       </MuiThemeProvider>
     
     )

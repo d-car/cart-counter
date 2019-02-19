@@ -4,10 +4,8 @@ import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import { fade } from '@material-ui/core/styles/colorManipulator';
 import { withStyles } from '@material-ui/core/styles';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MoreIcon from '@material-ui/icons/MoreVert';
@@ -27,9 +25,14 @@ const styles = theme => ({
     color:'white'
   },
   title: {
+    color: 'white',
     [theme.breakpoints.up('sm')]: {
       display: 'block',
+      color: 'white'
     },
+  },
+  navIcon: {
+    color: 'white'
   },
   sectionDesktop: {
     display: 'none',
@@ -43,6 +46,10 @@ const styles = theme => ({
       display: 'none',
     },
   },
+  mobileMenuText: {
+    color: 'black',
+    size: '12px'
+  }
 });
 
 class PrimarySearchAppBar extends React.Component {
@@ -110,13 +117,13 @@ class PrimarySearchAppBar extends React.Component {
       >
 
         <MenuItem onClick={this.handleProfileMenuOpen}>
-          <IconButton color="white">
+          <IconButton>
             <AccountCircle />
           </IconButton>
           <p>Profile</p>
         </MenuItem>
         <MenuItem onClick={this.handleMenuClose}>
-          <IconButton color='white'>
+          <IconButton>
             <Link to='/search' style={{ textDecoration: 'none' }}>
               <Search />
               <p>Search</p>
@@ -134,23 +141,23 @@ class PrimarySearchAppBar extends React.Component {
       <div className={classes.root}>
         <AppBar position="static">
           <Toolbar>
-            <Link to='/' style={{ textDecoration: 'none' }}>
-              <Typography className={classes.title} variant="h6" color="white" noWrap>
-                Cart-Counter
-              </Typography>
-            </Link>
+              
+            {/* <Typography className={classes.title} variant="h6" color="white" font-family='Press Start 2P' rnoWrap>
+              Cart-Counter
+            </Typography> */}
+
             <div className={classes.grow} />
             <div className={classes.sectionDesktop}>
 
-              <IconButton color='white'>
+              <IconButton>
                 <Link to='/search' style={{ textDecoration: 'none' }}>
-                  <Search />
+                  <Search  className={classes.navIcon}/>
                 </Link>
               </IconButton>
 
-              <IconButton color="white">
+              <IconButton>
                 <Link to='/' style={{ textDecoration: 'none' }}>
-                  <HomeIcon className={classes.icon} />
+                  <HomeIcon className={classes.navIcon} />
                 </Link>
               </IconButton>
 
@@ -158,13 +165,12 @@ class PrimarySearchAppBar extends React.Component {
                 aria-owns={isMenuOpen ? 'material-appbar' : undefined}
                 aria-haspopup="true"
                 onClick={this.handleProfileMenuOpen}
-                color="white"
               >
-                <AccountCircle />
+                <AccountCircle className={classes.navIcon}/>
               </IconButton>
             </div>
             <div className={classes.sectionMobile}>
-              <IconButton aria-haspopup="true" onClick={this.handleMobileMenuOpen} color="white">
+              <IconButton aria-haspopup="true" onClick={this.handleMobileMenuOpen}>
                 <MoreIcon />
               </IconButton>
             </div>
