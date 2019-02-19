@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Game from './Game';
-import { GameConsumer, GameProvider } from '../context';
+import { GameProvider, GameConsumer } from '../context';
 
 export default class GameList extends Component {
 

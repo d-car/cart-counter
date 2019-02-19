@@ -8,10 +8,15 @@ const GameContext = React.createContext();
 
 class GameProvider extends Component {
 
-  state = {
-    game:gameArray,
-    detailGame:detailGame
-  }
+ constructor(props) {
+   super(props);
+   this.state = {
+     games:gameArray,
+     detailGame:detailGame
+   }
+ }
+
+
   handleDetail = () => {
     console.log("hello from detail");
   }
@@ -19,16 +24,17 @@ class GameProvider extends Component {
     console.log("hello from addToCollection");
   }
   render() {
+
     return (
-      <GameContext.Provider value={{
-        ...this.state,
-        handleDetail: this.handleDetail,
-        addToCollection: this.addToCollection
-      }}>
-        {this.props.children}
+      <GameContext.Provider value={
+        {
+          ...this.state,
+          handleDetail: this.handleDetail,
+          addToCollection: this.addToCollection
+        }
+      }>
+        {/* {this.props.children} */}
       </GameContext.Provider>
-
-
     )
   }
 }
