@@ -13,7 +13,7 @@ export default class GameList extends Component {
       <React.Fragment>
         <div className='py-5'>
           <div className='container'>
-            <Title name='our' title='games' />
+            <Title name='Search' title='Games' />
             <div className='row'>
             <GameConsumer>
 
