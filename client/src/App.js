@@ -1,32 +1,29 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import PrimarySearchAppBar from './components/Nav';
-// import NoMatch from './pages/NoMatch';
-import SearchForm from './components/SearchForm/SearchForm';
+import React, { Component } from 'react';
+import { Switch, Route } from 'react-router-dom';
+import logo from './logo.svg';
+import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Nav from './components/Nav';
 import GameList from './components/GameList';
-import Game from './components/Game';
-import Login from './pages/login'
+import Details from './components/Details';
+import Collection from './components/Collection';
+import NoMatch from './components/NoMatch';
 
 
-
-
-const App = () => (
-  <Router>
-    <div>
-      <PrimarySearchAppBar />
+class App extends Component {
+  render() {
+    return (
+      <React.Fragment>
+        <Nav />
         <Switch>
-          {/* <PrimarySearchAppBar /> */}
-          <Route exact path='/search' component={SearchForm} />
-          <Route exact path='/' component={Game} />
-          {/* <Route exact path='/callback' component={Profile} />
-          <Route exact path='/home' component={Splash} />
-          <Route exact path='/profile' component={Profile} /> */}
-          {/* <Route exact path='/search' component={Search} /> */}
-          {/* <Route component={NoMatch} /> */}
-          <Route exact path='/login' component={Login} />
+          <Route exact path='/' component={ GameList } />
+          <Route path='/details' component={ Details } />
+          <Route path='/Collection' component={ Collection } />
+          <Route component={ NoMatch } />
         </Switch>
-    </div>
-  </Router>
-);
+      </React.Fragment>
+    );
+  }
+}
 
 export default App;
