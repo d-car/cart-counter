@@ -32,7 +32,7 @@ export default class Game extends Component {
                 {inCollection ? (
                   <p className='text-capitalize mb-0' disabled>
                     {" "}
-                    in inCollection
+                    in Collection
                 </p>
                 ) : (
                   <i className="fas fa-folder-plus"/>)}

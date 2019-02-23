@@ -49,11 +49,17 @@ export default class Details extends Component {
                       </Link>
                       <ButtonContainer 
                       collection
-                      disabled={inCollection?true:false}
+                      disabled={inCollection ? true : false}
                       onClick={() => {
                         value.addToCollection(id);
                       }}>
-                      add to collecion
+                      {inCollection ? (
+                        <p className='text-capitalize mb-0' disabled>
+                          {" "}
+                        in collection
+                        </p>
+                        ) : (
+                        <p>add to collection</p>)}
                       </ButtonContainer>
                     </div>
                 </div>

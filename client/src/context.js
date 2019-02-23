@@ -10,7 +10,9 @@ class GameProvider extends Component {
 
   state = {
     games: [],
-    detailGame: detailGame
+    detailGame: detailGame,
+    collection: [],
+    modalOpen: true,
   };
 
   componentDidMount() {
@@ -45,9 +47,26 @@ class GameProvider extends Component {
     });
   };
 
-  addToCollection = () => {
-    console.log('hello from addToCollection.');
-  }
+  addToCollection = (id) => {
+    let tempGames = [...this.state.games];
+    const index = tempGames.indexOf(this.getGame(id));
+    const game = tempGames[index];
+    game.inCollection = true;
+    game.count = 1;
+    const price = game.price;
+    game.total = price;
+    this.setState(() => {
+      return {games: tempGames, collection: [...this.state.collection, game]};
+    },
+    () => {
+      console.log(this.state);
+    });
+
+
+
+  };
+
+
   render() {
     return (
       <GameContext.Provider value={{
