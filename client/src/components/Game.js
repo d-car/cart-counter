@@ -24,10 +24,12 @@ export default class Game extends Component {
                 className='card-img-top' />
               </Link>
               <button
-                className='cart-btn'
+                className='coll-btn'
                 disabled={inCollection ? true : false}
                 onClick={() => {
-                  value.addToCollection(id)}}
+                  value.addToCollection(id);
+                  value.openModal(id)
+                }}
               >
                 {inCollection ? (
                   <p className='text-capitalize mb-0' disabled>
@@ -97,7 +99,7 @@ const GameWrapper = styled.div`
   .img-container:hover .card-img-top
     transform:scale(1.2); 
   }
-  .cart-btn{
+  .coll-btn{
     position: absolute;
     bottom:0;
     right:0;
@@ -109,11 +111,11 @@ const GameWrapper = styled.div`
     border-radius:0.5rem 0 0 0;
     transform:translate(100%, 100%); 
   }
-  .img-container:hover .cart-btn{
+  .img-container:hover .coll-btn{
     transform:translate(0, 0);
     transition: all 1s linear;
   }
-  .cart-btn:hover{
+  .coll-btn:hover{
     color:var(--mainBlue);
     cursor: pointer
   }

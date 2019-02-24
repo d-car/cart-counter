@@ -52,6 +52,7 @@ export default class Details extends Component {
                       disabled={inCollection ? true : false}
                       onClick={() => {
                         value.addToCollection(id);
+                        value.openModal(id);
                       }}>
                       {inCollection ? (
                         <p className='text-capitalize mb-0' disabled>
@@ -59,7 +60,11 @@ export default class Details extends Component {
                         in collection
                         </p>
                         ) : (
-                        <p>add to collection</p>)}
+                        <p className='text-capitalize mb-0' disabled>
+                          {" "}
+                        add game
+                        </p>
+                        )}
                       </ButtonContainer>
                     </div>
                 </div>

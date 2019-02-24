@@ -12,7 +12,8 @@ class GameProvider extends Component {
     games: [],
     detailGame: detailGame,
     collection: [],
-    modalOpen: true,
+    modalOpen: false,
+    modalGame: detailGame,
   };
 
   componentDidMount() {
@@ -61,9 +62,19 @@ class GameProvider extends Component {
     () => {
       console.log(this.state);
     });
+  };
 
+  openModal = (id) => {
+    const game = this.getGame(id);
+    this.setState(() => {
+      return {modalGame:game, modalOpen:true}
+    })
+  };
 
-
+  closeModal = () => {
+    this.setState(() => {
+      return {modalOpen:false}
+    })
   };
 
 
@@ -72,7 +83,9 @@ class GameProvider extends Component {
       <GameContext.Provider value={{
         ...this.state,
         handleDetail: this.handleDetail,
-        addToCollection: this.addToCollection
+        addToCollection: this.addToCollection,
+        openModal: this.openModal,
+        closeModal: this.closeModal,
       }}>
         {this.props.children}
       </GameContext.Provider>
