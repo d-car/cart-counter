@@ -18,7 +18,7 @@ export default class Collection extends Component {
               {/* this value comes from context.js. GameConsumer returns value, callback function in value to map through data array */}
               {(value)=>{
                 return value.collection.map(game => {
-                  return <Game key={game.id} game={game} collection={game.inCollection} />;
+                  return <Game key={game.id} game={game} collection={game.inCollection} />;                        
                 })
               }}
             </GameConsumer>

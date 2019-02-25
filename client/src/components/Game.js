@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 export default class Game extends Component {
   render() {
-    const { id, title, img, price, inCollection } = this.props.game;
+    const { id, title, img, price, inCollection, company } = this.props.game;
     return (
       <GameWrapper className='col-9 mx-auto col-md-6 col-lg-3 my-3'>
         <div className='card'>
@@ -34,7 +34,7 @@ export default class Game extends Component {
                 {inCollection ? (
                   <p className='text-capitalize mb-0' disabled>
                     {" "}
-                    in Collection
+                    in collection
                 </p>
                 ) : (
                   <i className="fas fa-folder-plus"/>)}
@@ -47,10 +47,10 @@ export default class Game extends Component {
             <p className='align-self-center mb-0'>
               {title}
             </p>
-            <h5 className='text-blue font-italic mb-0'>
-              <span className='mr-1'>$</span>
-              {price}
-            </h5>
+            <p className='text-capitalize font-italic mb-0'>
+              {/* <span className='mr-1'></span> */}
+              {company}
+            </p>
           </div>
         </div>
       </GameWrapper>
@@ -113,7 +113,7 @@ const GameWrapper = styled.div`
   }
   .img-container:hover .coll-btn{
     transform:translate(0, 0);
-    transition: all 1s linear;
+    transition: all 0.5s linear;
   }
   .coll-btn:hover{
     color:var(--mainBlue);
