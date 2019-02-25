@@ -1,5 +1,7 @@
 # Cart-Counter v0.5
 
+This app is currently a work in progress.
+
 Cart-Counter is a web app designed to help you keep track of your video game collection. 
 
 Prerequisites
