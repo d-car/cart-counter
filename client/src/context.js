@@ -64,6 +64,22 @@ class GameProvider extends Component {
     });
   };
 
+  deleteFromColl= (id) => {
+    let tempGames = [...this.state.games];
+    const index = tempGames.indexOf(this.getGame(id));
+    const game = tempGames[index];
+    game.inCollection = false;
+    game.count = -1;
+    const price = game.price;
+    game.total = price;
+    this.setState(() => {
+      return {games: tempGames, collection: [...this.state.collection, game]};
+    },
+    () => {
+      console.log(this.state);
+    });
+  };
+
   openModal = (id) => {
     const game = this.getGame(id);
     this.setState(() => {
